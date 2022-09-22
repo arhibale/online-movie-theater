@@ -1,9 +1,12 @@
 package dtos;
 
+import java.util.List;
+
 public class Viewer {
     private String name;
     private int age;
     private int countMovie;
+    private List<Cinema> cinemas;
 
     public String getName() {
         return name;
@@ -27,8 +30,13 @@ public class Viewer {
         return countMovie;
     }
 
-    public Viewer setCountMovie(int countMovie) {
-        this.countMovie = countMovie;
+    public List<Cinema> getCinemas() {
+        return cinemas;
+    }
+
+    public Viewer setCinemas(List<Cinema> cinemas) {
+        this.cinemas = cinemas;
+        countMovie = cinemas.size();
         return this;
     }
 }

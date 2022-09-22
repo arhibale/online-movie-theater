@@ -1,3 +1,4 @@
+import dtos.Cinema;
 import dtos.Viewer;
 import services.ViewerStatistics;
 
@@ -8,11 +9,16 @@ public class CinemaApplicationRun {
     public static void main(String[] args) {
         List<Viewer> viewers = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            viewers.add(
-                    new Viewer()
+            viewers.add(new Viewer()
                             .setName("Alex" + i)
                             .setAge(18 + i)
-                            .setCountMovie((int) (Math.random() + 10 + i))
+                            .setCinemas(
+                                    List.of(new Cinema()
+                                                    .setName("Name" + i)
+                                                    .setGenre("Genre" + i)
+                                                    .setMovieLength(10 + i)
+                                    )
+                            )
             );
         }
         ViewerStatistics viewerStatistics = new ViewerStatistics();
